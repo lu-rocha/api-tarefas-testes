@@ -2,7 +2,7 @@ from get_currency import get_currency
 from unittest.mock import patch
 
 
-def test_get_temperatura_com_mock():
+def test_get_currency_com_mock():
     # Arrange (Preparação)
     dados_mock = {  # Dados falsos que imitam a API real
         "USDBRL": {
