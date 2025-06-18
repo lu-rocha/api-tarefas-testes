@@ -1,42 +1,76 @@
-Listar tarefas (GET /tarefas)
--> [ ] - Se o retorno do código de status é 200
--> [ ] - Se o .json retornado é uma instancia do tipo list
--> [ ] - Se a quantidade de elementos retornado é maior que 0
+# ✅ Testes da API de Tarefas
 
-Teste criar nova tarefa (POST /tarefas)
--> [ ] - Se o retorno do código de status é 201
--> [ ] - Testar se o ID da reposta do JSON não é None
--> [ ] - Verificar se no json retornado o valor da chave "tarefa" é o mesmo que você especificou em assert
+Este documento descreve os testes implementados para a API de gerenciamento de tarefas, incluindo os critérios de validação para cada endpoint.
 
-Teste obter tarefa existente (GET /tarefas/<id>)
--> [ ] - Se o retorno do código de status é 200
--> [ ] - Se o ID do json retornado é igual a 1
+---
 
-Teste obter tarefa inexistente (GET /tarefas/<id>)
--> [ ] - Se o retorno do código de status é 404
--> [ ] - Verificar se existe no JSON retornado a chave "erro" na tarefa informada
+## 📋 Listar Tarefas (`GET /tarefas`)
 
-Teste atualizar tarefa (PUT /tarefas/<id>)
--> [ ] - Se o retorno do código de status é 200
--> [ ] - Verificar se no json retornado o valor da chave "tarefa" é o mesmo que você especificou em assert
--> [ ] - Verificar se no json retornado o valor da chave "feito" é o mesmo que você especificou em assert
+- [ ] Verifica se o código de status retornado é **200**
+- [ ] Verifica se a resposta em JSON é uma **instância de lista**
+- [ ] Verifica se a lista retornada possui **pelo menos um elemento**
 
-Teste atualizar tarefa inexistente (PUT /tarefas/<id>)
--> [ ] - Se o retorno do código de status é 404
--> [ ] - Verificar se existe no JSON retornado a chave "erro" na tarefa informada
+---
 
-Teste remover tarefa (DELETE /tarefas/<id>)
--> [ ] - Se o retorno do código de status é 200 ao consultar a tarefa
--> [ ] - Verificar se ao consultar a tarefa deletada o codigo é 404
+## ➕ Criar Nova Tarefa (`POST /tarefas`)
 
-Teste remover tarefa inexistente (DELETE /tarefas/<id>)
--> [ ] - Se o retorno do código de status é 404
--> [ ] - Verificar se existe no JSON retornado a chave "erro" na tarefa informada
+- [ ] Verifica se o código de status retornado é **201**
+- [ ] Verifica se o campo `id` no JSON **não é `None`**
+- [ ] Verifica se o valor da chave `"tarefa"` no JSON é **igual ao enviado na requisição**
 
-Teste campos obrigatórios ao criar tarefa
--> [ ] - Se o retorno do código de status é 400
--> [ ] - Verificar se existe no JSON retornado a chave "erro" na tarefa informada
+---
 
-[ ] Teste validação de tipos dos campos
--> [ ] - Se o retorno do código de status é 400
--> [ ] - Verificar se existe no JSON retornado a chave "erro" na tarefa informada
+## 🔍 Obter Tarefa Existente (`GET /tarefas/<id>`)
+
+- [ ] Verifica se o código de status retornado é **200**
+- [ ] Verifica se o campo `"id"` no JSON é **igual ao ID requisitado**
+
+---
+
+## ❌ Obter Tarefa Inexistente (`GET /tarefas/<id>`)
+
+- [ ] Verifica se o código de status retornado é **404**
+- [ ] Verifica se o JSON retornado contém a chave `"erro"`
+
+---
+
+## ✏️ Atualizar Tarefa Existente (`PUT /tarefas/<id>`)
+
+- [ ] Verifica se o código de status retornado é **200**
+- [ ] Verifica se o valor da chave `"tarefa"` no JSON é **igual ao enviado**
+- [ ] Verifica se o valor da chave `"feito"` no JSON é **igual ao enviado**
+
+---
+
+## 🚫 Atualizar Tarefa Inexistente (`PUT /tarefas/<id>`)
+
+- [ ] Verifica se o código de status retornado é **404**
+- [ ] Verifica se o JSON retornado contém a chave `"erro"`
+
+---
+
+## 🗑️ Remover Tarefa Existente (`DELETE /tarefas/<id>`)
+
+- [ ] Verifica se o código de status retornado ao deletar é **200**
+- [ ] Verifica se ao tentar obter a tarefa deletada, o retorno é **404**
+
+---
+
+## ❌ Remover Tarefa Inexistente (`DELETE /tarefas/<id>`)
+
+- [ ] Verifica se o código de status retornado é **404**
+- [ ] Verifica se o JSON retornado contém a chave `"erro"`
+
+---
+
+## ⚠️ Campos Obrigatórios na Criação (`POST /tarefas`)
+
+- [ ] Verifica se o código de status retornado é **400**
+- [ ] Verifica se o JSON retornado contém a chave `"erro"`
+
+---
+
+## 🧪 Validação de Tipos de Campo
+
+- [ ] Verifica se o código de status retornado é **400**
+- [ ] Verifica se o JSON retornado contém a chave `"erro"`
