@@ -18,15 +18,16 @@ def criar_tarefa():
     if not dados or "tarefa" not in dados or "feito" not in dados:
         return jsonify({"erro": "Campos obrigatórios: 'tarefa' e 'feito'"}), 400
 
-    if not isinstance(dados["tarefa"], str) or not isinstance(dados["feito"], bool):
+    if not isinstance(dados["tarefa"], str) or not isinstance(dados["feito"], bool): #verifica o tipo
         return (
             jsonify(
                 {"erro": "Tipos inválidos: 'tarefa' deve ser string e 'feito' booleano"}
+
             ),
             400,
         )
 
-    dados["id"] = len(tarefas) + 1
+    dados["id"] = len(tarefas) + 1 #retorna o tamanho do obj
     tarefas.append(dados)
     return jsonify(dados), 201
 
